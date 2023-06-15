@@ -1,5 +1,6 @@
 #include <iostream>
 #include <thread>
+#include "clear_screen.h"
 #include "Food.h"
 #include "List.h"
 using namespace std;
@@ -17,7 +18,7 @@ void removeFood();
 int main() {
     bool loop=true;
     while(loop) {
-        system("clear");
+        clearScreen();
         short choice;
         string nname,pass;
 
@@ -54,7 +55,7 @@ int main() {
 }
 
 void showMenu(){
-    system("clear");
+    clearScreen();
     list.showList();
 }
 
@@ -83,7 +84,7 @@ void editMenu(){
     bool loop=true;
     short mExit;
     while(loop) {
-        system("clear");
+        clearScreen();
         short choice;
 
         cout << "::::: Edit Panel :::::" << endl;
@@ -102,7 +103,7 @@ void editMenu(){
                 cin >> mExit;
                 break;
             case 4:
-                system("clear");
+                clearScreen();
                 cout << ">>Enter New Password:"<< endl;
                 cin >> password;
                 break;
@@ -116,7 +117,7 @@ void editMenu(){
 }
 
 void addFood(){
-    system("clear");
+    clearScreen();
     cout << "::::: Add Food :::::" << endl;
     bool loop = true;
     while(loop){
@@ -152,7 +153,7 @@ void addFood(){
 void removeFood(){
     bool loop = true;
     while(loop) {
-        system("clear");
+        clearScreen();
         short choice;
         string name;
 
@@ -187,3 +188,4 @@ void removeFood(){
 
 
 }
+

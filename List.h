@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include "clear_screen.h"
 #include "Food.h"
 using namespace std;
 
@@ -47,7 +48,7 @@ void List::removeAll() {
 }
 
 void List::showList() {
-    system("clear");
+    clearScreen();
     cout << "::::: MENU :::::" << endl;
     cout << "|  No  |" << endl;
     for(const Food& food : foods){
@@ -71,7 +72,7 @@ void List::addCart(short no, short num) {
 }
 
 void List::pay(){
-    system("clear");
+    clearScreen();
     cout << "::::: CART :::::" << endl;
     for(size_t i=0; i < cartName.size(); i++){
         cout << cartNum[i] << " x " << cartName[i] << endl;
