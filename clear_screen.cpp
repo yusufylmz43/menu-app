@@ -1,7 +1,7 @@
-#include "clear_screen.h"
 #include <iostream>
+#include "clear_screen.h"
 
-void clearScreen(){
+void clearScreen() {
 #ifdef _WIN32
     system("cls");
 #else

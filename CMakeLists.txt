@@ -3,4 +3,4 @@ project(menuapp)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(menuapp main.cpp Food.h List.h clear_screen.cpp clear_screen.h)
+add_executable(menuapp main.cpp Food.h List.h clear_screen.h List.cpp clear_screen.cpp)
