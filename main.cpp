@@ -3,11 +3,13 @@
 #include "clear_screen.h"
 #include "Food.h"
 #include "List.h"
+#include "authentication.h"
 using namespace std;
 
 List list;
-const string nickname = "admin";
-string password = "123";
+Authentication authentication;
+/*const string nickname = "admin";
+string password = "123";*/
 
 void showMenu();
 void addCart();
@@ -21,6 +23,7 @@ int main() {
         clearScreen();
         short choice;
         string nname,pass;
+        bool authen;
 
         cout << "::::: Select Mode :::::" << endl;
         cout << "1 | Edit Mode\n2 | Order Mode\n3 | Exit\n>>Enter Number:" << endl;
@@ -34,8 +37,10 @@ int main() {
                 cout << "\n";
                 cout << "Password: ";
                 cin >> pass;
-                if(nname==nickname && pass==password)
+                authen = authentication.accAuthen(nname,pass);
+                if(authen)
                     editMenu();
+                this_thread::sleep_for(chrono::seconds(2));
                 break;
             case 2:
                 showMenu();
@@ -104,8 +109,8 @@ void editMenu(){
                 break;
             case 4:
                 clearScreen();
-                cout << ">>Enter New Password:"<< endl;
-                cin >> password;
+                /*cout << ">>Enter New Password:"<< endl;
+                cin >> password;*/
                 break;
             case 5:
                 loop = false;
