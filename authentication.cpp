@@ -1,12 +1,12 @@
 #include "authentication.h"
 
 bool Authentication::accAuthen(const std::string &nickname, const string& password) {
-ifstream accountFile;
-accountFile.open("account.txt");
-if(!accountFile.is_open()){
+    ifstream accountFile;
+    accountFile.open("../account.txt");
+    if(!accountFile.is_open()){
     cout << "ERROR: The file could not be opened" << endl;
     return false;
-}
+    }
 
 string nicknameF, passwordF;
 getline(accountFile, nicknameF);
@@ -21,4 +21,20 @@ if(nickname == nicknameF && password == passwordF )
     return true;
 else
     return false;
+}
+
+int Authentication::setNamePass(const std::string &nickname, const std::string &password) {
+    ofstream accountFile;
+    accountFile.open("../account.txt");
+    if(!accountFile.is_open()){
+        cout << "ERROR: The file could not be opened" << endl;
+        return 1;
+    }
+
+    accountFile << nickname << "\n";
+    accountFile << password << "\n";
+
+    accountFile.close();
+
+    return 0;
 }

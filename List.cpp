@@ -1,8 +1,4 @@
 #include "List.h"
-//#include <iostream>
-//#include "clear_screen.h"
-//#include "Food.h"
-//using namespace std;
 
 void List::addFood(const Food &food) {
     foods.push_back(food);

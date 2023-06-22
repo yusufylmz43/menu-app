@@ -8,14 +8,13 @@ using namespace std;
 
 List list;
 Authentication authentication;
-/*const string nickname = "admin";
-string password = "123";*/
 
 void showMenu();
 void addCart();
 void editMenu();
 void addFood();
 void removeFood();
+int editAccInf();
 
 int main() {
     bool loop=true;
@@ -40,7 +39,6 @@ int main() {
                 authen = authentication.accAuthen(nname,pass);
                 if(authen)
                     editMenu();
-                this_thread::sleep_for(chrono::seconds(2));
                 break;
             case 2:
                 showMenu();
@@ -108,9 +106,7 @@ void editMenu(){
                 cin >> mExit;
                 break;
             case 4:
-                clearScreen();
-                /*cout << ">>Enter New Password:"<< endl;
-                cin >> password;*/
+                editAccInf();
                 break;
             case 5:
                 loop = false;
@@ -190,7 +186,29 @@ void removeFood(){
 
         }
     }
+}
 
+int editAccInf(){
+    clearScreen();
+    int ask;
+    cout << "Are you sure you want to change account information?\n1 | Yes\n2 | No\n>>Enter Number:";
+    cin >> ask;
+    switch(ask){
+        case 0:
+            return 0;
+        case 1:
+            break;
+        default:
+            return 1;
+    }
 
+    string nickname, password;
+    cout << ">>Enter New Nickname: ";
+    cin >> nickname;
+    cout << "\nEnter New Password: ";
+    cin >> password;
+    authentication.setNamePass(nickname, password);
+
+    return 0;
 }
 
