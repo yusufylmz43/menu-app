@@ -23,7 +23,7 @@ else
     return false;
 }
 
-int Authentication::setNamePass(const std::string &nickname, const std::string &password) {
+int Authentication::setNamePass(const string &nickname, const string &password) {
     ofstream accountFile;
     accountFile.open("../account.txt");
     if(!accountFile.is_open()){

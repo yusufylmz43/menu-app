@@ -7,7 +7,6 @@
 using namespace std;
 
 List list;
-Authentication authentication;
 
 void showMenu();
 void addCart();
@@ -36,7 +35,7 @@ int main() {
                 cout << "\n";
                 cout << "Password: ";
                 cin >> pass;
-                authen = authentication.accAuthen(nname,pass);
+                authen = Authentication::accAuthen(nname,pass);
                 if(authen)
                     editMenu();
                 break;
@@ -207,7 +206,7 @@ int editAccInf(){
     cin >> nickname;
     cout << "\nEnter New Password: ";
     cin >> password;
-    authentication.setNamePass(nickname, password);
+    Authentication::setNamePass(nickname, password);
 
     return 0;
 }
