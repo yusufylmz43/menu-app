@@ -23,7 +23,8 @@ void List::removeFood(const string &foodname) {
 }
 
 void List::removeAll() {
-    //TODO Make it compatible with .txt file
+    ofstream listF("../list.txt", ofstream::trunc);
+    listF.close();
     foods.clear();
     cout << "(i) All Foods Removed" << endl;
 }
@@ -60,5 +61,6 @@ void List::pay(){
     }
     cout << "\nTOTAL AMOUNT: $" << amount << endl;
     amount=0;
-    //TODO Reset cart
+    cartName.clear();
+    cartNum.clear();
 }
