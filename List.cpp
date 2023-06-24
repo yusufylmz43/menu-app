@@ -1,10 +1,19 @@
 #include "List.h"
 
 void List::addFood(const Food &food) {
-    foods.push_back(food);
+    ofstream listF;
+    listF.open("../list.txt", ios::app);
+    if(!listF.is_open())
+        cout << "ERROR: The file could not be opened" << endl;
+    else{
+        listF << food.no << "," << food.name << "," << food.price << "\n";
+        listF.close();
+        foods.push_back(food);
+    }
 }
 
 void List::removeFood(const string &foodname) {
+    //TODO Make it compatible with .txt file
     for(auto it=foods.begin(); it != foods.end(); ++it){
         if(it->name == foodname){
             foods.erase(it);
@@ -14,6 +23,7 @@ void List::removeFood(const string &foodname) {
 }
 
 void List::removeAll() {
+    //TODO Make it compatible with .txt file
     foods.clear();
     cout << "(i) All Foods Removed" << endl;
 }
@@ -49,4 +59,6 @@ void List::pay(){
         cout << cartNum[i] << " x " << cartName[i] << endl;
     }
     cout << "\nTOTAL AMOUNT: $" << amount << endl;
+    amount=0;
+    //TODO Reset cart
 }

@@ -4,14 +4,14 @@ using namespace std;
 
 class Food{
 public:
-    Food(short no, string& name, short price){
+    Food(int no, string& name, int price){
 
         this->no = no;
         this->name = name;
         this->price = price;
     }
 
-    short no;
+    int no;
     string name;
-    short price;
+    int price;
 };
