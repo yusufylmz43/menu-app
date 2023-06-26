@@ -153,7 +153,7 @@ void removeFood(){
     while(loop) {
         clearScreen();
         short choice;
-        string name;
+        int no;
 
         cout << "1 | Delete a Food\n2 | Delete All Foods\n3 | Exit\n>>Enter Number:" << endl;
         cin >> choice;
@@ -161,9 +161,9 @@ void removeFood(){
             case 1:
                 if(list.foods.size() > 1){
                     showMenu();
-                    cout << ">>Enter Food Name" << endl;
-                    cin >> name;
-                    list.removeFood(name);
+                    cout << ">>Enter Food No (Line Number)" << endl;
+                    cin >> no;
+                    list.removeFood(no);
                     this_thread::sleep_for(chrono::seconds(3));
                 }
                 else{

@@ -12,10 +12,28 @@ void List::addFood(const Food &food) {
     }
 }
 
-void List::removeFood(const string &foodname) {
-    //TODO Make it compatible with .txt file
+void List::removeFood(const int no) {
+    ifstream listF("../list.txt");
+    string fileName = "../list.txt";
+    ofstream tempF("../temp.txt");
+    string line;
+    int currentLine = 1;
+
+    while(getline(listF, line)){
+        if(currentLine != no){
+            tempF << line << endl;
+        }
+        currentLine++;
+    }
+
+    listF.close();
+    tempF.close();
+
+    remove(fileName.c_str());
+    rename("../temp.txt", fileName.c_str());
+
     for(auto it=foods.begin(); it != foods.end(); ++it){
-        if(it->name == foodname){
+        if(it->no == no){
             foods.erase(it);
             cout<<"(i) Food Removed"<< endl;
         }

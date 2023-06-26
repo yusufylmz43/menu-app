@@ -46,7 +46,7 @@ public:
 
     void addFood(const Food& food);
 
-    void removeFood(const string& foodname);
+    void removeFood(const int no);
 
     void removeAll();
 
