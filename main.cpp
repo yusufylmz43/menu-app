@@ -63,14 +63,14 @@ void addCart(){
     bool loop=true;
     while(loop) {
         short no = 0, num = 0, choice;
-        cout << ">>Enter food number:" << endl;
+        cout << ">>Enter food or drink number:" << endl;
         cin >> no;
         cout << ">>Enter quantity:" << endl;
         cin >> num;
         list.addCart(no, num);
         this_thread::sleep_for(chrono::seconds(3));
 
-        cout << "\nWill you choose food again?\n1 | Yes\n2 | No\n>>Enter Number:"<<endl;
+        cout << "\nWill you choose again?\n1 | Yes\n2 | No\n>>Enter Number:"<<endl;
         cin >> choice;
         if(choice==2){
                 loop = false;
