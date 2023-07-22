@@ -54,6 +54,10 @@ void List::showList() {
     for(const Food& food : foods){
         cout << "|  " << food.no << "  | " << food.name << " | " << food.price << " $ |" << endl;
     }
+    cout<<"\n" << "::::: DRINKS :::::" << "\n" << "|  No  |" << endl;
+    for(const Drink& drink : drinks){
+        cout << "|  " << drink.no << "  | " << drink.name << " | " << drink.price << " $ |" << endl;
+    }
 }
 
 void List::addCart(short no, short num) {
@@ -63,7 +67,22 @@ void List::addCart(short no, short num) {
             amount += (food.price * num);
             cartName.push_back(food.name);
             cartNum.push_back(num);
-            cout << "(i) Food added to cartName. Total Amount: " << amount << endl;
+            cout << "(i) Food added to Cart. Total Amount: " << amount << endl;
+            found = true;
+        }
+        else if(no == 0){ //To skip the food process
+            found = true;
+        }
+    }
+    for(const Drink& drink : drinks){
+        if(drink.no == no){
+            amount += (drink.price * num);
+            cartName.push_back(drink.name);
+            cartNum.push_back(num);
+            cout << "(i) Drink added to Cart. Total Amount: " << amount << endl;
+            found = true;
+        }
+        else if(no == 0){ //To skip the food process
             found = true;
         }
     }
